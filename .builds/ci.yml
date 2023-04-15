@@ -1,0 +1,22 @@
+---
+image: 'archlinux'
+packages:
+  - 'go'
+  - 'make'
+  - 'scdoc'
+sources:
+  - https://git.sr.ht/~jamesponddotco/wikiextract
+tasks:
+  - setup: |
+      cd wikiextract
+      make init
+  - lint: |
+      cd wikiextract
+      export PATH="${HOME}/go/bin:${PATH}"
+      make lint
+  - test: |
+      cd wikiextract
+      make test
+  - build: |
+      cd wikiextract
+      make
